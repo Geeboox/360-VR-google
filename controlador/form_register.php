@@ -2,7 +2,7 @@
 // error_reporting(0);
 include_once("../modelo/conexion.php");
 // include_once("../modelo/gestion.php");
-include_once("../modelo/form_register.php");
+include_once("../modelo/form.php");
 
 // $objglobal=new gestion();
 $obj=new form_register();
@@ -16,15 +16,13 @@ if($accion=="1"){//grabar
 	$correo=addslashes($_REQUEST["correo"]);
 
 
-	if ($obj->validar_pos($correo)) {
+	if ($obj->validar_correo($correo)) {
 		?>
 	<script type="text/javascript">
-	swal("El correo ya existe, por favor elegir otra posición.");
-	mostrar_form();
+	swal("El correo ya existe, por favor elegir otro correo.");
 	</script>
 	<?php
 	}else{
-
 		//add_slider($view,$pos,$imagen,$frontend)
 		$res=$obj->add_form_register($nombre,$correo);
 
@@ -34,8 +32,7 @@ if($accion=="1"){//grabar
 			//alert("<?php echo $imagen;?>");
 			swal("Buen trabajo!", "Datos registrados correctamete!", "success");
 			// alert("<?php echo $view;?>");
-			limpiar_Formulario("form_register");
-			cargar_Pantalla("form_register");
+    		window.open("pagina_final.html");
 			</script>
 			<?php
 			}else{

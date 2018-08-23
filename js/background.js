@@ -21,4 +21,4 @@ var vid = document.getElementById("myVideo");
 
 });
 
-setTimeout("location.href = 'registro.html';",10000);
+setTimeout("location.href = 'registro.html';",3000);

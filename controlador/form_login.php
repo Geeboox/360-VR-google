@@ -2,7 +2,7 @@
 // error_reporting(0);
 include_once("../modelo/conexion.php");
 // include_once("../modelo/gestion.php");
-include_once("../modelo/form_login.php");
+include_once("../modelo/form.php");
 
 // $objglobal=new gestion();
 $obj=new form_login();
@@ -12,9 +12,9 @@ $accion=$_REQUEST["accion"];
 $id=$_REQUEST["id"];
 if($accion=="1"){//grabar
 
-	$correo_val=addslashes($_REQUEST["correo_val"]);
+	$correo=addslashes($_REQUEST["correo_val"]);
 
-	if ($obj->validar_pos($correo)) {
+	if ($obj->validar_correo($correo)) {
 		?>
 	<script type="text/javascript">
 	swal("La posición ya existe, por favor elegir otra posición.");
@@ -24,7 +24,7 @@ if($accion=="1"){//grabar
 	}else{
 
 		//add_slider($view,$pos,$imagen,$frontend)
-		$res=$obj->add_form_login($pos,$descripcion,$imagen,$url,$frontend);
+		$res=$obj->add_form_register($pos,$descripcion,$imagen,$url,$frontend);
 
 		if($res==true){
 			?>

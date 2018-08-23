@@ -26,6 +26,7 @@
 			}
 		}
 
+
 		public function validar_pos($correo){
 			$sql=$this->con->query("select * from registro where correo='$correo'");
 			while($rw=$sql->fetch_array())
@@ -45,7 +46,8 @@
 			}
 
 			return $this->datos;
-		}d
+		}
+		
 	}
  ?>
 

@@ -1,33 +1,12 @@
 $(document).ready(function(){
 
-  $('#formatotabla').dataTable({
-                 "language": {
-                "lengthMenu": "Ver los _MENU_ Primeros Registros",
-                "zeroRecords": "Nothing found - sorry",
-                "info": "Pagina Nº _PAGE_ de _PAGES_",
-                "infoEmpty": "No se encontraron registros",
-                "infoFiltered": "(filtered from _MAX_ total records)",
-                "sSearch":         "BUSCAR:",
-                "sZeroRecords":    "No se encontraron resultados",
-                "sEmptyTable":     "Ningún dato disponible en esta tabla",
-
-                 "oPaginate": {
-                "sFirst":    "Primero",
-                "sLast":     "Último",
-                "sNext":     "Siguiente",
-                "sPrevious": "Anterior"
-                },
-                 "fnInfoCallback": null}
-     });
-
-
-$("#home-form_register").on("submit",function (e){//se mpregunta si ya se preiocnó el boton submit, que en este cdaso es el mguardar
+$("#form_register").on("submit",function (e){//se mpregunta si ya se preiocnó el boton submit, que en este cdaso es el mguardar
 
    e.preventDefault();//no se
    var f = $(this);//tampoco se
-
-    swal({   title: "Esta seguro de enviar los datos",
-          text: "Esta a punto de enviar los datos",
+    alert("ok");
+    swal({   title: "Esta seguro de enviar la imagen",
+          text: "Esta a punto de enviar la imagen",
           type: "info",
           confirmButtonText: "Enviar",
           cancelButtonText: "Cancelar",
@@ -47,7 +26,7 @@ $("#home-form_register").on("submit",function (e){//se mpregunta si ya se preioc
             processData: false,
             success:function(data){
                   $("#Resultado_general1").html(data);//aqui se muestra el resultado
-                  window.location.reload();
+                  //window.location.reload();
             }
         });
 
@@ -61,8 +40,9 @@ $("#home-form_register").on("submit",function (e){//se mpregunta si ya se preioc
 
    e.preventDefault();//no se
    var f = $(this);//tampoco se
+   alert("ok2");
 
-    swal({   title: "Esta seguro de enviar la imagen",
+       swal({   title: "Esta seguro de enviar la imagen",
           text: "Esta a punto de enviar la imagen",
           type: "info",
           confirmButtonText: "Enviar",
@@ -71,6 +51,7 @@ $("#home-form_register").on("submit",function (e){//se mpregunta si ya se preioc
           closeOnConfirm: false,
           showLoaderOnConfirm: true,},
           function(){
+               alert("ok2");
             var formData= new FormData(document.getElementById("form_login"));//se crea el formato de datos, para enio de archivos y datos
             formData.append("dato", "valor");//colocar esto
             $.ajax({//envia por ajax
@@ -84,6 +65,7 @@ $("#home-form_register").on("submit",function (e){//se mpregunta si ya se preioc
             success:function(data){
                   $("#Resultado_general2").html(data);//aqui se muestra el resultado
                   //window.location.reload();
+                     alert("ok2");
             }
         });
 
